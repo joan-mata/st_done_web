@@ -1,0 +1,6 @@
+# Variables de entorno — NUNCA subir al repositorio
+.env
+
+# Ficheros temporales del sistema
+.DS_Store
+Thumbs.db

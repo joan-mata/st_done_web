@@ -1,0 +1,23 @@
+# ============================================================
+# .htaccess — Configuración de seguridad Apache
+# ============================================================
+
+# Denegar acceso directo a carpetas sensibles
+<DirectoryMatch "^.*(config|models|controllers|db)">
+    Require all denied
+</DirectoryMatch>
+
+# Denegar acceso al fichero .env
+<Files ".env">
+    Require all denied
+</Files>
+
+# Cabeceras de seguridad
+<IfModule mod_headers.c>
+    # Evitar que el navegador "adivine" el tipo de contenido
+    Header set X-Content-Type-Options "nosniff"
+    # Protección básica XSS en navegadores antiguos
+    Header set X-XSS-Protection "1; mode=block"
+    # No permitir que la página se cargue en un iframe (clickjacking)
+    Header set X-Frame-Options "SAMEORIGIN"
+</IfModule>
