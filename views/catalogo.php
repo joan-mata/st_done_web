@@ -29,7 +29,12 @@ require __DIR__ . '/layout/header.php';
         <div class="grid-productos">
             <?php foreach ($productos as $p): ?>
                 <article class="tarjeta-producto">
-                    <div class="producto-icono"><?= htmlspecialchars($p['icono']) ?></div>
+                    <div class="producto-imagen">
+                        <img src="<?= htmlspecialchars($p['imagen_url']) ?>"
+                             alt="<?= htmlspecialchars($p['nombre']) ?>"
+                             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                        <div class="producto-icono-fallback" style="display:none"><?= htmlspecialchars($p['icono']) ?></div>
+                    </div>
                     <div class="tarjeta-cuerpo">
                         <span class="producto-categoria"><?= htmlspecialchars($p['categoria_nombre'] ?? '') ?></span>
                         <h2 class="producto-nombre">

@@ -11,8 +11,13 @@ require __DIR__ . '/layout/header.php';
 
     <div class="detalle-producto">
 
-        <!-- Imagen / icono del producto -->
-        <div class="detalle-icono"><?= htmlspecialchars($producto['icono']) ?></div>
+        <!-- Imagen del producto -->
+        <div class="detalle-imagen">
+            <img src="<?= htmlspecialchars($producto['imagen_url']) ?>"
+                 alt="<?= htmlspecialchars($producto['nombre']) ?>"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="detalle-icono-fallback" style="display:none"><?= htmlspecialchars($producto['icono']) ?></div>
+        </div>
 
         <!-- Información del producto -->
         <div class="detalle-info">

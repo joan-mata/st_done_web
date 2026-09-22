@@ -251,6 +251,28 @@ img {
     transform: translateY(-3px);
 }
 
+.producto-imagen {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    background: linear-gradient(135deg, #eff6ff, #dbeafe);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.producto-imagen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+.producto-icono-fallback {
+    font-size: 4rem;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Mantener compatibilidad con el nombre antiguo por si acaso */
 .producto-icono {
     font-size: 4rem;
     text-align: center;
@@ -331,6 +353,28 @@ img {
     .detalle-producto {
         grid-template-columns: 280px 1fr;
     }
+}
+
+.detalle-imagen {
+    background: linear-gradient(135deg, #eff6ff, #dbeafe);
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 1 / 1;
+}
+.detalle-imagen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.detalle-icono-fallback {
+    font-size: 8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--espaciado-xl);
 }
 
 .detalle-icono {

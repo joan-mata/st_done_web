@@ -99,58 +99,58 @@ INSERT INTO categorias (nombre) VALUES
 -- ============================================================
 -- DATOS: productos
 -- ============================================================
-INSERT INTO productos (nombre, descripcion, precio, stock, icono, categoria_id) VALUES
+INSERT INTO productos (nombre, descripcion, precio, stock, icono, imagen_url, categoria_id) VALUES
 -- Smartphones (categoria_id = 1)
 ('iPhone 15 Pro',
  'Apple iPhone 15 Pro 256 GB, chip A17 Pro, cámara 48 MP de titanio. Batería de hasta 23 horas de reproducción de vídeo.',
- 999.99, 15, '📱', 1),
+ 999.99, 15, '📱', '/img/iphone15pro.jpg', 1),
 
 ('Samsung Galaxy S24',
  'Samsung Galaxy S24 128 GB, Snapdragon 8 Gen 3, pantalla AMOLED 6.2 pulgadas a 120 Hz.',
- 849.99, 20, '📱', 1),
+ 849.99, 20, '📱', '/img/samsungs24.jpg', 1),
 
 ('Xiaomi 14',
  'Xiaomi 14 256 GB, Snapdragon 8 Gen 3, cámara Leica triple, carga inalámbrica 50 W.',
- 699.99, 12, '📱', 1),
+ 699.99, 12, '📱', '/img/xiaomi14.jpg', 1),
 
 -- Tablets (categoria_id = 2)
 ('iPad Air M2',
  'Apple iPad Air 11 pulgadas, chip M2, 256 GB Wi-Fi, pantalla Liquid Retina con True Tone.',
- 749.99, 10, '💻', 2),
+ 749.99, 10, '💻', '/img/ipadair.jpg', 2),
 
 ('Samsung Galaxy Tab S9',
  'Samsung Galaxy Tab S9 128 GB, Snapdragon 8 Gen 2, pantalla AMOLED 11 pulgadas, S Pen incluido.',
- 649.99,  8, '💻', 2),
+ 649.99,  8, '💻', '/img/galaxytabs9.jpg', 2),
 
 -- Auriculares (categoria_id = 3)
 ('AirPods Pro 2ª gen',
  'Apple AirPods Pro de 2ª generación con cancelación activa de ruido, chip H2 y estuche MagSafe.',
- 279.99, 25, '🎧', 3),
+ 279.99, 25, '🎧', '/img/airpodspro.jpg', 3),
 
 ('Sony WH-1000XM5',
  'Auriculares over-ear Sony con cancelación de ruido líder del mercado. Hasta 30 h de batería.',
- 329.99, 18, '🎧', 3),
+ 329.99, 18, '🎧', '/img/sonywh1000xm5.jpg', 3),
 
 ('JBL Tune 770NC',
  'Auriculares JBL inalámbricos con cancelación de ruido adaptativa y 70 h de autonomía.',
- 109.99, 30, '🎧', 3),
+ 109.99, 30, '🎧', '/img/jbltune770.svg', 3),
 
 -- Accesorios (categoria_id = 4)
 ('Cable USB-C 2 m',
  'Cable USB-C de carga rápida 100 W, 2 metros, recubrimiento de nylon trenzado.',
-  19.99,100, '🔌', 4),
+  19.99,100, '🔌', '/img/cableusbc.svg', 4),
 
 ('Cargador GaN 65 W',
  'Cargador compacto GaN 65 W con 2× USB-C y 1× USB-A. Compatible con MacBook, iPad y smartphones.',
-  49.99, 50, '🔌', 4),
+  49.99, 50, '🔌', '/img/cargador65w.svg', 4),
 
 ('Funda iPhone 15 Pro',
  'Funda transparente reforzada MagSafe compatible con iPhone 15 Pro. Bordes elevados anti-caída.',
-  24.99, 60, '🛡️', 4),
+  24.99, 60, '🛡️', '/img/funda_iphone15.svg', 4),
 
 ('MagSafe 15 W',
  'Cargador MagSafe oficial Apple 15 W para iPhone 12 y posteriores. Cable USB-C incluido.',
-  39.99, 40, '🔌', 4);
+  39.99, 40, '🔌', '/img/magsafe.svg', 4);
 
 
 -- ============================================================
