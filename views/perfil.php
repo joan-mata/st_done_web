@@ -113,28 +113,28 @@ require __DIR__ . '/layout/header.php';
                 <a href="index.php" class="btn btn-primario">Ver catálogo</a>
             <?php else: ?>
                 <div class="lista-pedidos">
-                    <?php foreach ($pedidos as $p):
-                        $estadoClase = 'estado-' . $p['estado'];
-                        $etiqueta = match($p['estado']) {
+                    <?php foreach ($pedidos as $pedido):
+                        $estadoClase = 'estado-' . $pedido['estado'];
+                        $etiqueta = match($pedido['estado']) {
                             'pendiente'  => '⏳ Pendiente',
                             'procesando' => '⚙️ Preparando',
                             'enviado'    => '🚚 En camino',
                             'entregado'  => '✅ Entregado',
                             'cancelado'  => '❌ Cancelado',
                             'devuelto'   => '↩️ Devuelto',
-                            default      => $p['estado'],
+                            default      => $pedido['estado'],
                         };
                     ?>
-                        <a href="index.php?pagina=pedido&id=<?= $p['id'] ?>" class="pedido-fila">
+                        <a href="index.php?pagina=pedido&id=<?= $pedido['id'] ?>" class="pedido-fila">
                             <div class="pedido-fila-izq">
-                                <span class="pedido-num">Pedido #<?= $p['id'] ?></span>
-                                <span class="pedido-fecha"><?= date('d/m/Y H:i', strtotime($p['created_at'])) ?></span>
+                                <span class="pedido-num">Pedido #<?= $pedido['id'] ?></span>
+                                <span class="pedido-fecha"><?= date('d/m/Y H:i', strtotime($pedido['created_at'])) ?></span>
                                 <span class="pedido-destinatario">
-                                    📦 <?= htmlspecialchars($p['nombre_destinatario'] ?? '') ?>
+                                    📦 <?= htmlspecialchars($pedido['nombre_destinatario'] ?? '') ?>
                                 </span>
                             </div>
                             <div class="pedido-fila-der">
-                                <span class="pedido-total"><?= number_format($p['total'], 2, ',', '.') ?> €</span>
+                                <span class="pedido-total"><?= number_format($pedido['total'], 2, ',', '.') ?> €</span>
                                 <span class="estado-badge <?= $estadoClase ?>"><?= $etiqueta ?></span>
                                 <span class="pedido-ver">Ver detalle →</span>
                             </div>

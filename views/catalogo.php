@@ -48,33 +48,33 @@ require __DIR__ . '/layout/header.php';
         </p>
     <?php else: ?>
         <div class="grid-productos">
-            <?php foreach ($productos as $p): ?>
+            <?php foreach ($productos as $producto): ?>
                 <?php $textoBusqueda = implode(' ', [
-                    $p['nombre'],
-                    $p['categoria_nombre'] ?? '',
-                    $p['descripcion'] ?? '',
+                    $producto['nombre'],
+                    $producto['categoria_nombre'] ?? '',
+                    $producto['descripcion'] ?? '',
                 ]); ?>
                 <article class="tarjeta-producto"
                          data-producto-busqueda="<?= htmlspecialchars($textoBusqueda) ?>">
                     <div class="producto-imagen">
-                        <img src="<?= htmlspecialchars($p['imagen_url']) ?>"
-                             alt="<?= htmlspecialchars($p['nombre']) ?>"
+                        <img src="<?= htmlspecialchars($producto['imagen_url']) ?>"
+                             alt="<?= htmlspecialchars($producto['nombre']) ?>"
                              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-                        <div class="producto-icono-fallback" style="display:none"><?= htmlspecialchars($p['icono']) ?></div>
+                        <div class="producto-icono-fallback" style="display:none"><?= htmlspecialchars($producto['icono']) ?></div>
                     </div>
                     <div class="tarjeta-cuerpo">
-                        <span class="producto-categoria"><?= htmlspecialchars($p['categoria_nombre'] ?? '') ?></span>
+                        <span class="producto-categoria"><?= htmlspecialchars($producto['categoria_nombre'] ?? '') ?></span>
                         <h2 class="producto-nombre">
-                            <a href="index.php?pagina=producto&id=<?= $p['id'] ?>">
-                                <?= htmlspecialchars($p['nombre']) ?>
+                            <a href="index.php?pagina=producto&id=<?= $producto['id'] ?>">
+                                <?= htmlspecialchars($producto['nombre']) ?>
                             </a>
                         </h2>
                         <p class="producto-descripcion">
-                            <?= htmlspecialchars(mb_substr($p['descripcion'] ?? '', 0, 80)) ?>…
+                            <?= htmlspecialchars(mb_substr($producto['descripcion'] ?? '', 0, 80)) ?>…
                         </p>
                         <div class="tarjeta-pie">
-                            <span class="producto-precio"><?= number_format($p['precio'], 2, ',', '.') ?> €</span>
-                            <a href="index.php?pagina=producto&id=<?= $p['id'] ?>" class="btn btn-primario">
+                            <span class="producto-precio"><?= number_format($producto['precio'], 2, ',', '.') ?> €</span>
+                            <a href="index.php?pagina=producto&id=<?= $producto['id'] ?>" class="btn btn-primario">
                                 Ver producto
                             </a>
                         </div>

@@ -73,9 +73,9 @@ foreach ($carrito as $item) {
                     <select id="pais" name="pais" autocomplete="country-name">
                         <?php
                         $paises = ['España','Francia','Italia','Portugal','Alemania','Reino Unido','Otros'];
-                        foreach ($paises as $p):
+                        foreach ($paises as $pais):
                         ?>
-                            <option value="<?= $p ?>"><?= $p ?></option>
+                            <option value="<?= $pais ?>"><?= $pais ?></option>
                         <?php endforeach; ?>
                     </select>
                 </div>

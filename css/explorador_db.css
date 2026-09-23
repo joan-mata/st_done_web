@@ -1,0 +1,112 @@
+/* ════════════════════════════════════════════════════════════
+   Explorador educativo de base de datos — estilos propios
+   Cargado solo en views/explorador_db.php
+   ════════════════════════════════════════════════════════════ */
+
+.seccion-db {
+    max-width: 1180px;
+    margin: 0 auto;
+}
+.db-hero {
+    background: #172554;
+    color: #eff6ff;
+    border-radius: var(--radio-tarjeta);
+    padding: var(--espaciado-xl);
+    margin-bottom: var(--espaciado-xl);
+}
+.db-hero .titulo-pagina { color: white; margin-bottom: .4rem; }
+.db-hero p { color: #bfdbfe; max-width: 680px; }
+.db-kicker {
+    color: #fbbf24;
+    font-size: .72rem;
+    font-weight: 800;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+}
+.db-layout {
+    display: grid;
+    grid-template-columns: 220px minmax(0, 1fr);
+    gap: var(--espaciado-xl);
+    align-items: start;
+}
+.db-sidebar,
+.db-diagrama,
+.db-tabla-panel {
+    background: var(--color-superficie);
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radio-tarjeta);
+    box-shadow: var(--sombra-tarjeta);
+}
+.db-sidebar { padding: var(--espaciado-m); position: sticky; top: 84px; }
+.db-sidebar h2 { font-size: 1rem; margin-bottom: .7rem; }
+.db-sidebar nav { display: grid; gap: .35rem; }
+.db-tabla-enlace {
+    display: flex;
+    justify-content: space-between;
+    gap: .5rem;
+    padding: .6rem .7rem;
+    border-radius: 7px;
+    color: var(--color-texto-suave);
+    font-size: .86rem;
+}
+.db-tabla-enlace strong {
+    color: var(--color-texto-suave);
+    font-size: .75rem;
+}
+.db-tabla-enlace:hover,
+.db-tabla-enlace.activo { background: #fffbeb; color: #92400e; text-decoration: none; }
+.db-tabla-enlace.activo strong { color: #92400e; }
+.db-contenido { display: grid; gap: var(--espaciado-xl); min-width: 0; }
+.db-diagrama, .db-tabla-panel { padding: var(--espaciado-xl); }
+.db-seccion-cabecera {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: var(--espaciado-m);
+    margin-bottom: var(--espaciado-l);
+}
+.db-seccion-cabecera h2 { margin: .2rem 0; }
+.db-seccion-cabecera p { color: var(--color-texto-suave); font-size: .9rem; }
+.db-seccion-cabecera code,
+.db-lectura {
+    background: #f1f5f9;
+    border: 1px solid var(--color-borde);
+    border-radius: 999px;
+    color: var(--color-texto-suave);
+    padding: .3rem .65rem;
+    font-size: .75rem;
+    white-space: nowrap;
+}
+.db-lectura { background: #ecfdf5; border-color: #bbf7d0; color: #166534; font-weight: 700; }
+.db-relaciones { display: flex; align-items: center; justify-content: center; gap: .55rem; flex-wrap: wrap; }
+.db-entidad {
+    display: grid;
+    gap: .2rem;
+    min-width: 145px;
+    padding: .75rem;
+    border: 1px solid #bfdbfe;
+    border-radius: 8px;
+    background: #eff6ff;
+    color: #1e3a8a;
+    text-align: center;
+}
+.db-entidad-principal { border-color: #fcd34d; background: #fffbeb; color: #92400e; }
+.db-entidad span { font-size: .68rem; color: var(--color-texto-suave); }
+.db-relacion-linea { display: grid; gap: .1rem; color: var(--color-texto-suave); text-align: center; font-size: .7rem; }
+.db-relacion-linea b { color: var(--color-primario); font-size: .95rem; }
+.db-nota, .db-pie-tabla { color: var(--color-texto-suave); font-size: .8rem; margin-top: var(--espaciado-l); }
+.db-columnas { display: flex; flex-wrap: wrap; gap: .4rem; margin-bottom: var(--espaciado-m); }
+.db-columnas code { padding: .3rem .55rem; background: #f8fafc; border: 1px solid var(--color-borde); border-radius: 5px; font-size: .76rem; color: #475569; }
+.db-tabla-scroll { overflow-x: auto; border: 1px solid var(--color-borde); border-radius: 8px; }
+.db-datos { width: 100%; min-width: 560px; border-collapse: collapse; font-size: .82rem; }
+.db-datos th, .db-datos td { padding: .65rem .75rem; border-bottom: 1px solid var(--color-borde); text-align: left; white-space: nowrap; }
+.db-datos th { background: #f8fafc; color: var(--color-texto-suave); font-size: .72rem; text-transform: uppercase; letter-spacing: .04em; }
+.db-datos tr:last-child td { border-bottom: 0; }
+
+@media (max-width: 760px) {
+    .db-layout { grid-template-columns: 1fr; }
+    .db-sidebar { position: static; }
+    .db-sidebar nav { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .db-relaciones { display: grid; grid-template-columns: 1fr; }
+    .db-relacion-linea { transform: rotate(90deg); height: 30px; }
+}

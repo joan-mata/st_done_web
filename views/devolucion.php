@@ -6,11 +6,11 @@ $tituloPagina = 'Solicitar devolución';
 require __DIR__ . '/layout/header.php';
 ?>
 
-<section class="seccion-auth" style="align-items:flex-start; justify-content:center;">
-    <div class="tarjeta-auth" style="max-width:560px;">
+<section class="seccion-auth">
+    <div class="tarjeta-auth tarjeta-auth--ancha">
 
-        <h1 class="titulo-pagina" style="font-size:1.4rem;">↩️ Solicitar devolución</h1>
-        <p style="color:var(--color-texto-suave); margin-bottom:1.5rem;">
+        <h1 class="titulo-pagina">↩️ Solicitar devolución</h1>
+        <p class="auth-subtitulo">
             Pedido #<?= $cab['id'] ?> · <?= date('d/m/Y', strtotime($cab['created_at'])) ?> ·
             <strong><?= number_format($cab['total'], 2, ',', '.') ?> €</strong>
         </p>
@@ -42,13 +42,13 @@ require __DIR__ . '/layout/header.php';
                           placeholder="Describe el problema con más detalle..."></textarea>
             </div>
 
-            <div style="display:flex; gap:1rem; flex-wrap:wrap;">
+            <div class="form-acciones">
                 <button type="submit" class="btn btn-primario">Solicitar devolución</button>
                 <a href="index.php?pagina=pedido&id=<?= $cab['id'] ?>" class="btn btn-secundario">Cancelar</a>
             </div>
         </form>
 
-        <div class="alerta" style="margin-top:1.5rem; background:#f0fdf4; border:1px solid #bbf7d0; color:#166534; font-size:.88rem;">
+        <div class="alerta alerta-exito">
             <strong>✓ Política de devoluciones</strong><br>
             Tienes 3 días desde la recepción del pedido para solicitar una devolución.
             El reembolso se procesará en 5–7 días hábiles una vez recibamos el producto.

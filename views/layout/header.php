@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= htmlspecialchars($tituloPagina ?? 'TechShop') ?> — TechShop</title>
     <link rel="stylesheet" href="css/estilos.css">
+    <?php if (!empty($cssExtra)): ?>
+    <link rel="stylesheet" href="<?= htmlspecialchars($cssExtra) ?>">
+    <?php endif; ?>
 </head>
 <body>
 
@@ -12,11 +15,12 @@
     <div class="header-inner">
         <a href="index.php" class="logo">🛍️ TechShop</a>
 
+        <a href="index.php?pagina=explorador_db" class="btn-explorar-db" aria-label="Explorador educativo de base de datos">
+            <span aria-hidden="true">◉</span> DB Explorer
+        </a>
+
         <nav class="nav-principal">
             <a href="index.php" class="nav-link">Catálogo</a>
-            <a href="index.php?pagina=explorador_db" class="nav-link nav-db-link">
-                <span aria-hidden="true">◎</span> Explorar DB
-            </a>
             <?php if (isset($_SESSION['usuario_id'])): ?>
                 <a href="index.php?pagina=perfil" class="nav-link">Mi cuenta</a>
                 <a href="index.php?accion=logout" class="nav-link">Salir</a>

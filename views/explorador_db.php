@@ -2,6 +2,7 @@
 // views/explorador_db.php
 // Variables: $tablas, $tablaActual, $resumen, $filas
 $tituloPagina = 'Explorar la base de datos';
+$cssExtra = 'css/explorador_db.css';
 $definicion = $tablas[$tablaActual];
 require __DIR__ . '/layout/header.php';
 ?>

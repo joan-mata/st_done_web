@@ -9,11 +9,13 @@ Práctica de Programació Web · **Serveis de Telecomunicacions** · Grado en Si
 Aplicación web de una tienda online sencilla construida con **PHP + PostgreSQL**, siguiendo la arquitectura **MVC** y las buenas prácticas del curso.
 
 **Páginas principales:**
-- **Catálogo** — listado de productos con filtro por categoría
+- **Catálogo** — listado de productos con filtro por categoría y buscador en tiempo real
 - **Detalle de producto** — descripción, precio y botón "añadir al carrito"
-- **Carrito** — gestión de artículos y resumen de la compra
+- **Carrito** — drawer lateral + página de gestión de artículos
 - **Checkout** — dirección de envío y confirmación del pedido
-- **Mi cuenta** — registro, login y historial de pedidos
+- **Mi cuenta** — registro, login, historial de pedidos y seguimiento de estado
+- **Devoluciones** — solicitud de devolución con política visible
+- **DB Explorer** — vista educativa de la estructura de la base de datos (solo lectura)
 
 ---
 
@@ -31,13 +33,15 @@ ST_done_web/
 ├── models/
 │   ├── Producto.php
 │   ├── Usuario.php
-│   └── Pedido.php
+│   ├── Pedido.php
+│   └── ExploradorDb.php
 │
 ├── controllers/
 │   ├── ProductoController.php
 │   ├── UsuarioController.php
 │   ├── CarritoController.php
-│   └── PedidoController.php
+│   ├── PedidoController.php
+│   └── ExploradorDbController.php
 │
 ├── views/
 │   ├── layout/               ← header.php y footer.php compartidos
@@ -49,13 +53,19 @@ ST_done_web/
 │   ├── login.php
 │   ├── registro.php
 │   ├── perfil.php
+│   ├── detalle_pedido.php
+│   ├── devolucion.php
+│   ├── explorador_db.php
 │   └── error.php
 │
-├── css/estilos.css
+├── css/
+│   ├── estilos.css           ← estilos globales de la tienda
+│   └── explorador_db.css     ← estilos del DB Explorer (cargado solo en esa vista)
 ├── js/tienda.js
 │
 └── db/
     ├── init.sql              ← Schema + datos de prueba
+    ├── update.sql            ← Migraciones incrementales
     ├── seed_usuarios.php     ← Inserta usuarios con contraseñas hasheadas
     └── uml_schema.md         ← Diagrama UML de la base de datos
 ```
@@ -185,6 +195,14 @@ Usuario → index.php (router) → Controller → Model → DB
 - **Model** — solo habla con la base de datos. Sin HTML.
 - **View** — solo genera HTML. Sin SQL.
 - **Controller** — recibe la petición, llama al modelo, carga la vista.
+
+---
+
+## DB Explorer
+
+La ruta `index.php?pagina=explorador_db` ofrece una vista educativa de solo lectura de la base de datos. Muestra las tablas, sus columnas, las relaciones entre ellas y hasta 50 filas de cada tabla. Los campos sensibles (contraseñas) no se exponen.
+
+El botón de acceso aparece centrado en el header con un estilo visual diferenciado (terminal) para dejar claro que es una herramienta de apoyo educativo, no parte del flujo de la tienda.
 
 ---
 
