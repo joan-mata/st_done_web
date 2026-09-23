@@ -14,6 +14,9 @@
 
         <nav class="nav-principal">
             <a href="index.php" class="nav-link">Catálogo</a>
+            <a href="index.php?pagina=explorador_db" class="nav-link nav-db-link">
+                <span aria-hidden="true">◎</span> Explorar DB
+            </a>
             <?php if (isset($_SESSION['usuario_id'])): ?>
                 <a href="index.php?pagina=perfil" class="nav-link">Mi cuenta</a>
                 <a href="index.php?accion=logout" class="nav-link">Salir</a>

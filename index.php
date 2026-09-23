@@ -10,6 +10,7 @@ require_once __DIR__ . '/controllers/ProductoController.php';
 require_once __DIR__ . '/controllers/UsuarioController.php';
 require_once __DIR__ . '/controllers/CarritoController.php';
 require_once __DIR__ . '/controllers/PedidoController.php';
+require_once __DIR__ . '/controllers/ExploradorDbController.php';
 
 // ── Acciones POST ─────────────────────────────────────────────
 $accion = $_GET['accion'] ?? '';
@@ -45,6 +46,7 @@ $pagina = $_GET['pagina'] ?? 'catalogo';
 $paginasValidas = [
     'catalogo', 'producto', 'carrito', 'checkout', 'login', 'registro',
     'perfil', 'confirmacion', 'logout', 'pedido', 'devolucion',
+    'explorador_db',
 ];
 
 if (!in_array($pagina, $paginasValidas, true)) {
@@ -65,4 +67,5 @@ switch ($pagina) {
     case 'logout':       (new UsuarioController())->logout();                  break;
     case 'pedido':       (new PedidoController())->mostrarDetallePedido();     break;
     case 'devolucion':   (new PedidoController())->mostrarDevolucion();        break;
+    case 'explorador_db': (new ExploradorDbController())->mostrar();           break;
 }
