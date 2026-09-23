@@ -71,6 +71,18 @@ ALTER TABLE pedidos
 ALTER TABLE productos
     ADD COLUMN IF NOT EXISTS imagen_url VARCHAR(255) NOT NULL DEFAULT '/img/placeholder.svg';
 
+-- Actualizar rutas cuando las imágenes SVG han sido sustituidas por fotografías.
+UPDATE productos SET imagen_url = CASE nombre
+    WHEN 'JBL Tune 770NC' THEN '/img/jbltune770.jpg'
+    WHEN 'Cable USB-C 2 m' THEN '/img/cableusbc.jpeg'
+    WHEN 'Cargador GaN 65 W' THEN '/img/cargador65w.jpg'
+    WHEN 'Funda iPhone 15 Pro' THEN '/img/funda_iphone15.jpg'
+    WHEN 'MagSafe 15 W' THEN '/img/magsafe.jpg'
+    ELSE imagen_url
+END
+WHERE nombre IN ('JBL Tune 770NC', 'Cable USB-C 2 m', 'Cargador GaN 65 W',
+                 'Funda iPhone 15 Pro', 'MagSafe 15 W');
+
 
 -- =============================================================================
 -- 5. TABLA devoluciones — crear si no existe

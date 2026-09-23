@@ -23,8 +23,8 @@
             <?php endif; ?>
 
             <!-- Botón carrito → abre el popup -->
-            <button class="nav-link carrito-btn" id="btn-abrir-carrito" aria-label="Abrir carrito">
-                🛒 Carrito
+            <button class="carrito-btn" id="btn-abrir-carrito" aria-label="Abrir carrito">
+                <span aria-hidden="true">🛒</span> Carrito
                 <?php
                 $numArticulos = array_sum(array_column($_SESSION['carrito'] ?? [], 'cantidad'));
                 if ($numArticulos > 0): ?>

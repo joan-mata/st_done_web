@@ -172,24 +172,24 @@ INSERT INTO productos (nombre, descripcion, precio, stock, icono, imagen_url, ca
 
 ('JBL Tune 770NC',
  'Auriculares JBL inalámbricos con cancelación de ruido adaptativa y 70 h de autonomía.',
- 109.99,  30, '🎧', '/img/jbltune770.svg',     3),
+ 109.99,  30, '🎧', '/img/jbltune770.jpg',     3),
 
 -- Accesorios (categoria_id = 4)
 ('Cable USB-C 2 m',
  'Cable USB-C de carga rápida 100 W, 2 metros, recubrimiento de nylon trenzado.',
-  19.99, 100, '🔌', '/img/cableusbc.svg',      4),
+    19.99, 100, '🔌', '/img/cableusbc.jpeg',     4),
 
 ('Cargador GaN 65 W',
  'Cargador compacto GaN 65 W con 2× USB-C y 1× USB-A. Compatible con MacBook, iPad y smartphones.',
-  49.99,  50, '🔌', '/img/cargador65w.svg',    4),
+    49.99,  50, '🔌', '/img/cargador65w.jpg',    4),
 
 ('Funda iPhone 15 Pro',
  'Funda transparente reforzada MagSafe compatible con iPhone 15 Pro. Bordes elevados anti-caída.',
-  24.99,  60, '🛡️', '/img/funda_iphone15.svg', 4),
+    24.99,  60, '🛡️', '/img/funda_iphone15.jpg', 4),
 
 ('MagSafe 15 W',
  'Cargador MagSafe oficial Apple 15 W para iPhone 12 y posteriores. Cable USB-C incluido.',
-  39.99,  40, '🔌', '/img/magsafe.svg',        4);
+    39.99,  40, '🔌', '/img/magsafe.jpg',        4);
 
 
 -- Usuarios ------------------------------------------------------------------

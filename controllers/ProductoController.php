@@ -18,8 +18,9 @@ class ProductoController {
     // Página: catálogo de productos (con filtro opcional por categoría)
     public function mostrarCatalogo(): void {
         $categoriaId = isset($_GET['categoria']) ? (int)$_GET['categoria'] : null;
+        $busqueda = trim((string)($_GET['q'] ?? ''));
 
-        $productos   = $this->modelo->getTodos($categoriaId);
+        $productos   = $this->modelo->getTodos($categoriaId, $busqueda);
         $categorias  = $this->modelo->getCategorias();
         $categoriaActual = $categoriaId;
 

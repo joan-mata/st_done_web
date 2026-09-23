@@ -110,4 +110,30 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    // Filtrar el catálogo mientras se escribe, a partir de tres caracteres.
+    const buscador = document.getElementById('busqueda-productos');
+    const tarjetas = document.querySelectorAll('[data-producto-busqueda]');
+    const sinResultados = document.getElementById('buscador-sin-resultados');
+    if (buscador && tarjetas.length) {
+        const normalizar = function (texto) {
+            return texto.toLocaleLowerCase('es').normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+        };
+
+        const actualizarResultados = function () {
+            const termino = normalizar(buscador.value.trim());
+            let visibles = 0;
+
+            tarjetas.forEach(function (tarjeta) {
+                const coincide = termino.length < 3 || normalizar(tarjeta.dataset.productoBusqueda).includes(termino);
+                tarjeta.hidden = !coincide;
+                if (coincide) visibles++;
+            });
+
+            if (sinResultados) sinResultados.hidden = visibles > 0;
+        };
+
+        buscador.addEventListener('input', actualizarResultados);
+        actualizarResultados();
+    }
+
 });

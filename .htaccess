@@ -2,10 +2,12 @@
 # .htaccess — Configuración de seguridad Apache
 # ============================================================
 
-# Denegar acceso directo a carpetas sensibles
-<DirectoryMatch "^.*(config|models|controllers|db)">
-    Require all denied
-</DirectoryMatch>
+# Denegar acceso directo a carpetas sensibles desde .htaccess.
+# DirectoryMatch no está permitido en este contexto de configuración.
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^(?:config|models|controllers|db)(?:/|$) - [F,L]
+</IfModule>
 
 # Denegar acceso al fichero .env
 <Files ".env">

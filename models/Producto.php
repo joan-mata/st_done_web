@@ -16,25 +16,29 @@ class Producto {
     }
 
     // Obtener todos los productos activos (con nombre de categoría)
-    public function getTodos(?int $categoriaId = null): array {
+    public function getTodos(?int $categoriaId = null, string $busqueda = ''): array {
+        $condiciones = ['p.activo = TRUE'];
+        $parametros = [];
+
         if ($categoriaId !== null) {
-            $stmt = $this->pdo->prepare(
-                "SELECT p.*, c.nombre AS categoria_nombre
-                 FROM productos p
-                 LEFT JOIN categorias c ON c.id = p.categoria_id
-                 WHERE p.activo = TRUE AND p.categoria_id = :cat
-                 ORDER BY p.nombre"
-            );
-            $stmt->execute([':cat' => $categoriaId]);
-        } else {
-            $stmt = $this->pdo->query(
-                "SELECT p.*, c.nombre AS categoria_nombre
-                 FROM productos p
-                 LEFT JOIN categorias c ON c.id = p.categoria_id
-                 WHERE p.activo = TRUE
-                 ORDER BY p.nombre"
-            );
+            $condiciones[] = 'p.categoria_id = :cat';
+            $parametros[':cat'] = $categoriaId;
         }
+
+        if ($busqueda !== '') {
+            $condiciones[] = '(p.nombre ILIKE :busqueda OR p.descripcion ILIKE :busqueda OR c.nombre ILIKE :busqueda)';
+            $parametros[':busqueda'] = '%' . $busqueda . '%';
+        }
+
+        $where = implode(' AND ', $condiciones);
+        $stmt = $this->pdo->prepare(
+            "SELECT p.*, c.nombre AS categoria_nombre
+             FROM productos p
+             LEFT JOIN categorias c ON c.id = p.categoria_id
+             WHERE $where
+             ORDER BY p.nombre"
+        );
+        $stmt->execute($parametros);
         return $stmt->fetchAll();
     }
 
