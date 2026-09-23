@@ -63,7 +63,7 @@ class ExploradorDb {
         $consultas = [
             'categorias' => "SELECT id, nombre FROM categorias ORDER BY id LIMIT 50",
             'productos' => "SELECT id, nombre, precio, stock, categoria_id, activo FROM productos ORDER BY id LIMIT 50",
-            'usuarios' => "SELECT id, nombre, email, concat(substr(password_hash,1,8), '....', substr(password_hash,-4)) AS password_hash, rol, created_at FROM usuarios ORDER BY id LIMIT 50",
+            'usuarios' => "SELECT id, nombre, email, concat(substr(password_hash,1,8), '....', right(password_hash,4)) AS password_hash, rol, created_at FROM usuarios ORDER BY id LIMIT 50",
             'pedidos' => "SELECT id, usuario_id, total, estado, created_at FROM pedidos ORDER BY id DESC LIMIT 50",
             'lineas_pedido' => "SELECT id, pedido_id, producto_id, cantidad, precio_unitario FROM lineas_pedido ORDER BY id DESC LIMIT 50",
             'devoluciones' => "SELECT id, pedido_id, motivo, estado, created_at FROM devoluciones ORDER BY id DESC LIMIT 50",

@@ -260,7 +260,6 @@ body,
     padding: .6rem .75rem;
     border-bottom: 1px solid #0f2b0f;
     text-align: left;
-    white-space: nowrap;
     color: #86efac;
 }
 .db-datos tr:last-child td { border-bottom: 0; }
